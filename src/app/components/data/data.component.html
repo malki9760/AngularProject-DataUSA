@@ -1,0 +1,34 @@
+<table class="container">
+    <thead>
+        <tr>
+            <td>
+                <h1>Year <br/> <b (click)="sort()" class="sortButton"> Sort ↕ </b></h1>
+            </td>
+            <td>
+                <h1>Nation</h1>
+            </td>
+            <td *ngIf="!mobile" class="hiddenOnMobileScreen">
+                <h1>Population</h1>
+            </td>
+            <td>
+                <h1>Growth percentages</h1>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of dataOfUSA; let index = index">
+            <td>
+                {{item.Year}}
+            </td>
+            <td>
+                {{item.Nation}}
+            </td>
+            <td [ngClass]="{'paintToRed' : index === indexToPaintPopulation}" *ngIf="!mobile" class="hiddenOnMobileScreen">
+                {{item.Population}}
+            </td>
+            <td>
+                {{item['Growth percentages']}} %
+            </td>
+        </tr>
+    </tbody>
+</table>
